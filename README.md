@@ -25,7 +25,9 @@ E-Gallery is a jQuery-powered, customizable, reactive image gallery library made
 ### Initialization
 The gallery is initialized by instantiating a new eGallery object, and passing it an options object:
 
-`new EGallery( {options} );`.
+```js
+new EGallery( {options} );
+```
 
 Passing the images to the gallery can be done in two different ways:
 Passing an array of "image" objects to the library in the `options` object
