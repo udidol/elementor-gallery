@@ -1,0 +1,92 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>E-Gallery by Elementor - Demo</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="../e-gallery.min.js"></script>
+		<link rel="stylesheet" href="../e-gallery.min.css">
+		<link rel="stylesheet" href="../index.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<img src="../images/elementor-site-logo.png" />
+				<a href="../"><h1>E-Gallery by Elementor - Demo</h1></a>
+				<div id="menuToggle"><i class="eicon-menu-bar" aria-hidden="true"></i></div>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html">Demo Home</a></li>
+						<li><a href="../grid">Grid Gallery Demo</a></li>
+						<li><a href="../justified">Justified Gallery Demo</a></li>
+						<li><a href="../masonry">Masonry Gallery Demo</a></li>
+					</ul>
+				</nav>
+			</header>
+			<h2>Grid Gallery Demo</h2>
+			<p>
+				E-Gallery's Grid mode displays the gallery images in a customizable, symmetrical grid. The library enables users to control
+				the displayed aspect ratio, the number of columns, the spacing between rows and columns, and more.
+			</p>
+			<p id="aspect-ratio-choose" class="flex">
+				<span class="option-label">Change Aspect ratio:</span>
+				<a href="#" class="setting-link setting-link-active" data-aspect-ratio="16:9">16:9</a>
+				<a href="#" class="setting-link" data-aspect-ratio="4:3">4:3</a>
+				<a href="#" class="setting-link" data-aspect-ratio="21:9">21:9</a>
+				<a href="#" class="setting-link" data-aspect-ratio="1:1">1:1</a>
+			</p>
+			<p id="columns-choose" class="flex">
+				<span class="option-label">Change Number of Columns:</span>
+				<a href="#" class="setting-link link-active" data-columns="5">5</a>
+				<a href="#" class="setting-link" data-columns="4">4</a>
+				<a href="#" class="setting-link" data-columns="3">3</a>
+				<a href="#" class="setting-link" data-columns="2">2</a>
+			</p>
+			<div id="grid-gallery-container" class="gallery-container"></div>
+		</div>
+		<script src="../handler.js"></script>
+		<script>
+			const gridGallery = new EGallery( {
+				container: '#grid-gallery-container',
+				type: 'grid',
+				items: [
+					{ thumbnail: '../images/1.jpg' },
+					{ thumbnail: '../images/2.jpg' },
+					{ thumbnail: '../images/3.jpg' },
+					{ thumbnail: '../images/4.jpg' },
+					{ thumbnail: '../images/5.jpg' },
+					{ thumbnail: '../images/6.jpg' },
+				],
+			} );
+
+			const aspectRatioLinks = $( '#aspect-ratio-choose .setting-link' ),
+				columnLinks = $( '#columns-choose .setting-link' ),
+				settingLinkActiveClass = 'setting-link-active';
+
+			aspectRatioLinks.on( 'click', ( event ) => {
+				event.preventDefault();
+
+				const target = $( event.target );
+
+				gridGallery.setSettings( 'aspectRatio', target.data( 'aspect-ratio' ) );
+
+				aspectRatioLinks.removeClass( settingLinkActiveClass );
+
+				target.addClass( settingLinkActiveClass );
+			} );
+
+			columnLinks.on( 'click', ( event ) => {
+				event.preventDefault();
+
+				const target = $( event.target );
+
+				gridGallery.setSettings( 'columns', target.data( 'columns' ) );
+
+				columnLinks.removeClass( settingLinkActiveClass );
+
+				target.addClass( settingLinkActiveClass );
+			} );
+		</script>
+	</body>
+</html>

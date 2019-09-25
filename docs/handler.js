@@ -1,13 +1,29 @@
+$( document ).ready( () => {
+	$( '#menuToggle' ).on( 'click', ( event ) => {
+		event.stopPropagation();
+		$( '#nav' ).toggle();
+	} );
+
+	$( document ).on( 'click', () => {
+		$( '#nav' ).hide();
+	} );
+
+	$( '#nav' ).click( ( event ) => {
+		event.stopPropagation();
+	} );
+} );
+
+/*
 const gridGallery = new EGallery( {
 	container: '#grid-gallery-container',
 	type: 'grid',
 	items: [
-		{ thumbnail: 'images/1.jpg' },
-		{ thumbnail: 'images/2.jpg' },
-		{ thumbnail: 'images/3.jpg' },
-		{ thumbnail: 'images/4.jpg' },
-		{ thumbnail: 'images/5.jpg' },
-		{ thumbnail: 'images/6.jpg' },
+		{ thumbnail: '../images/1.jpg' },
+		{ thumbnail: '../images/2.jpg' },
+		{ thumbnail: '../images/3.jpg' },
+		{ thumbnail: '../images/4.jpg' },
+		{ thumbnail: '../images/5.jpg' },
+		{ thumbnail: '../images/6.jpg' },
 	],
 } );
 
@@ -15,12 +31,12 @@ new EGallery( {
 	container: '#justified-gallery-container',
 	type: 'justified',
 	items: [
-		{ thumbnail: 'images/1.jpg' },
-		{ thumbnail: 'images/2.jpg' },
-		{ thumbnail: 'images/3.jpg' },
-		{ thumbnail: 'images/4.jpg' },
-		{ thumbnail: 'images/5.jpg' },
-		{ thumbnail: 'images/6.jpg' },
+		{ thumbnail: '../images/1.jpg' },
+		{ thumbnail: '../images/2.jpg' },
+		{ thumbnail: '../images/3.jpg' },
+		{ thumbnail: '../images/4.jpg' },
+		{ thumbnail: '../images/5.jpg' },
+		{ thumbnail: '../images/6.jpg' },
 	],
 } );
 
@@ -28,17 +44,17 @@ const masonryGallery = new EGallery( {
 	container: '#masonry-gallery-container',
 	type: 'masonry',
 	items: [
-		{ thumbnail: 'images/1.jpg' },
-		{ thumbnail: 'images/2.jpg' },
-		{ thumbnail: 'images/3.jpg' },
-		{ thumbnail: 'images/4.jpg' },
-		{ thumbnail: 'images/5.jpg' },
-		{ thumbnail: 'images/6.jpg' },
+		{ thumbnail: '../images/1.jpg' },
+		{ thumbnail: '../images/2.jpg' },
+		{ thumbnail: '../images/3.jpg' },
+		{ thumbnail: '../images/4.jpg' },
+		{ thumbnail: '../images/5.jpg' },
+		{ thumbnail: '../images/6.jpg' },
 	],
 } );
 
-const aspectRatioLinks = $( '#aspect-ratio-choose .link' ),
-	columnLinks = $( '#columns-choose .link' );
+const aspectRatioLinks = $( '#aspect-ratio-choose .setting-link' ),
+	columnLinks = $( '#columns-choose .setting-link' );
 
 aspectRatioLinks.on( 'click', ( event ) => {
 	event.preventDefault();
@@ -63,3 +79,4 @@ columnLinks.on( 'click', ( event ) => {
 
 	target.addClass( 'link-active' );
 } );
+*/
