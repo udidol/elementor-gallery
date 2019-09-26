@@ -14,6 +14,19 @@ body {
 	margin: 0;
 }
 
+h1, h2 {
+	text-align: center;
+	color: #3f2c73;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
 .wrapper {
 	max-width: 800px;
 	margin: auto;
@@ -23,7 +36,6 @@ body {
 header {
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	position: relative
 }
 
@@ -81,19 +93,6 @@ nav li a:hover {
 
 nav ul li:not(:last-child) a {
 	border-bottom: 2px solid #3f2c73;
-}
-
-h1, h2 {
-	text-align: center;
-	color: #3f2c73;
-}
-
-h1 {
-	font-size: 36px;
-}
-
-h2 {
-	font-size: 28px;
 }
 
 a, p, span {
@@ -184,6 +183,16 @@ a {
 	-moz-osx-font-smoothing: grayscale;
 	/* Uncomment for 3D effect */
 	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+@media only screen and ( max-width: 660px ) {
+	h1 {
+		font-size: 32px;
+	}
+
+	#menuToggle {
+		top: 29px;
+	}
 }
 
 @media only screen and ( max-width: 600px ) {
