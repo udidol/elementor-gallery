@@ -1,3 +1,7 @@
+:root {
+	--transition: 0.5s;
+}
+
 @font-face {
 	font-family: 'eicons';
 	src: url('./fonts/eicons.eot?42232160');
@@ -56,6 +60,12 @@ header > img {
 	top: 34px;
 	color: #3f2c73;
 	font-size: 24px;
+	transition: var( --transition );
+}
+
+#menuToggle:hover {
+	cursor: pointer;
+	color: #ed476d;
 }
 
 .eicon-menu-bar:before {
@@ -133,7 +143,7 @@ a {
 
 .link {
 	font-size: 26px;
-	transition: 0.5s;
+	transition: var( --transition );
 	color: #3f2c73;
 	display: flex;
 	flex-direction: column;
@@ -150,11 +160,77 @@ a {
 	border: 2px solid #3f2c73;
 	min-width: 26px;
 	text-align: center;
+	transition: var( --transition );
+	border-radius: 4px;
+}
+
+.setting-link:not(:last-of-type) {
+	border-right-width: 0;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.setting-link:not(:first-of-type) {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.setting-link {
+
+}
+
+.setting-link:hover {
+	background-color: #3f2c73;
+	color: #fff;
 }
 
 .setting-link-active {
 	color: #fff;
 	background-color: #3f2c73;
+}
+
+.number-control {
+	margin: 18px auto;
+}
+
+span.number-control-button {
+	cursor: pointer;
+	transition: var( --transition );
+}
+
+span.number-control-button:hover {
+	background: #ed476d;
+	border-color: #ed476d;
+}
+
+.number-control .minus, .number-control .plus {
+	width: 20px;
+	height: 30px;
+	line-height: 28px;
+	background: #3f2c73;
+	color: #fff;
+	text-align: center;
+	border: 2px solid #3f2c73;
+}
+
+.number-control .minus {
+	border-radius: 4px 0 0 4px;
+}
+
+.number-control .plus {
+	border-radius: 0 4px 4px 0;
+}
+
+input.number-control-input {
+	height: 34px;
+	width: 50px;
+	text-align: center;
+	font-size: 12px;
+	border: solid #3f2c73;
+	border-width: 2px 0;
+	display: inline-block;
+	vertical-align: middle;
+	transition: var( --transition );
 }
 
 .demo-icon {

@@ -43,6 +43,18 @@
 				<a href="#" class="setting-link setting-link-active" data-columns="3">3</a>
 				<a href="#" class="setting-link" data-columns="2">2</a>
 			</p>
+			<div id="columns-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Columns:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
+			<div id="rows-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Rows:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
 			<div id="grid-gallery-container" class="gallery-container"></div>
 		</div>
 		<script src="../handler.js"></script>
@@ -89,6 +101,10 @@
 
 				target.addClass( settingLinkActiveClass );
 			} );
+
+			numberControl( gridGallery, '#columns-gap', 'verticalGap' );
+
+			numberControl( gridGallery, '#rows-gap', 'horizontalGap' );
 		</script>
 	</body>
 </html>

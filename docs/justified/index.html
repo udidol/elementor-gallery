@@ -30,11 +30,23 @@
 				In this mode, the heights of all images are identical (except for the last row, the behavior of which
 				is configurable), and the widths are variable so that the gallery images retain their original aspect ratio.
 			</p>
+			<div id="columns-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Columns:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
+			<div id="rows-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Rows:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
 			<div id="justified-gallery-container" class="gallery-container"></div>
 		</div>
 		<script src="../handler.js"></script>
 		<script>
-			new EGallery( {
+			const justifiedGallery = new EGallery( {
 				container: '#justified-gallery-container',
 				type: 'justified',
 				items: [
@@ -46,6 +58,10 @@
 					{ thumbnail: '../images/6.jpg' },
 				],
 			} );
+
+			numberControl( justifiedGallery, '#columns-gap', 'verticalGap' );
+
+			numberControl( justifiedGallery, '#rows-gap', 'horizontalGap' );
 		</script>
 	</body>
 </html>
