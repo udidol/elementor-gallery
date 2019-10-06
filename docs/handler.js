@@ -24,7 +24,7 @@ const numberControl = ( galleryObject, settingSelector, gallerySetting ) => {
 		$input.val( count );
 		$input.change();
 
-		galleryObject.setSettings( gallerySetting, $input.val() );
+		galleryObject.setSettings( gallerySetting, count );
 
 		return false;
 	} );
