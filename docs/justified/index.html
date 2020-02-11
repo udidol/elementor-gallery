@@ -1,0 +1,66 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>E-Gallery by Elementor - Demo</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="../e-gallery.min.js"></script>
+		<link rel="stylesheet" href="../e-gallery.min.css">
+		<link rel="stylesheet" href="../index.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<img src="../images/elementor-site-logo.png" />
+				<a href="../"><h1>E-Gallery by Elementor - Demo</h1></a>
+				<div id="menuToggle"><i class="eicon-menu-bar" aria-hidden="true"></i></div>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html">Demo Home</a></li>
+						<li><a href="../grid">Grid Gallery Demo</a></li>
+						<li><a href="../justified">Justified Gallery Demo</a></li>
+						<li><a href="../masonry">Masonry Gallery Demo</a></li>
+					</ul>
+				</nav>
+			</header>
+			<h2>Justified Gallery Demo</h2>
+			<p>
+				E-Gallery's Justified mode displays the gallery images in a customizable "horizontal masonry" layout.
+				In this mode, the heights of all images are identical (except for the last row, the behavior of which
+				is configurable), and the widths are variable so that the gallery images retain their original aspect ratio.
+			</p>
+			<div id="columns-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Columns:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
+			<div id="rows-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Rows:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
+			<div id="justified-gallery-container" class="gallery-container"></div>
+		</div>
+		<script src="../handler.js"></script>
+		<script>
+			const justifiedGallery = new EGallery( {
+				container: '#justified-gallery-container',
+				type: 'justified',
+				items: [
+					{ thumbnail: '../images/1.jpg' },
+					{ thumbnail: '../images/2.jpg' },
+					{ thumbnail: '../images/3.jpg' },
+					{ thumbnail: '../images/4.jpg' },
+					{ thumbnail: '../images/5.jpg' },
+					{ thumbnail: '../images/6.jpg' },
+				],
+			} );
+
+			numberControl( justifiedGallery, '#columns-gap', 'horizontalGap' );
+			numberControl( justifiedGallery, '#rows-gap', 'verticalGap' );
+		</script>
+	</body>
+</html>

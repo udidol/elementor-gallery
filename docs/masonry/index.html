@@ -1,0 +1,88 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>E-Gallery by Elementor - Demo</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="../e-gallery.min.js"></script>
+		<link rel="stylesheet" href="../e-gallery.min.css">
+		<link rel="stylesheet" href="../index.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<img src="../images/elementor-site-logo.png" />
+				<a href="../"><h1>E-Gallery by Elementor - Demo</h1></a>
+				<div id="menuToggle"><i class="eicon-menu-bar" aria-hidden="true"></i></div>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html">Demo Home</a></li>
+						<li><a href="../grid">Grid Gallery Demo</a></li>
+						<li><a href="../justified">Justified Gallery Demo</a></li>
+						<li><a href="../masonry">Masonry Gallery Demo</a></li>
+					</ul>
+				</nav>
+			</header>
+			<h2>Masonry Gallery Demo</h2>
+			<p>
+				E-Gallery's Masonry mode displays the gallery images in a customizable masonry layout. In this mode,
+				the widths of all images are identical, and the heights are variable so that the gallery images
+				retain their original aspect ratio.
+			</p>
+			<p id="columns-choose" class="centered">
+				<span class="option-label">Change Number of Columns:</span>
+				<a href="#" class="setting-link" data-columns="5">5</a>
+				<a href="#" class="setting-link" data-columns="4">4</a>
+				<a href="#" class="setting-link setting-link-active" data-columns="3">3</a>
+				<a href="#" class="setting-link" data-columns="2">2</a>
+			</p>
+			<div id="columns-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Columns:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
+			<div id="rows-gap" class="number-control flex">
+				<span class="option-label">Change the Spacing Between Rows:</span>
+				<span class="number-control-button minus">-</span>
+				<input class="number-control-input" type="text" value="10" />
+				<span class="number-control-button plus">+</span>
+			</div>
+			<div id="masonry-gallery-container" class="gallery-container"></div>
+		</div>
+		<script src="../handler.js"></script>
+		<script>
+			const columnLinks = $( '#columns-choose .setting-link' ),
+				settingLinkActiveClass = 'setting-link-active',
+				masonryGallery = new EGallery( {
+				container: '#masonry-gallery-container',
+				type: 'masonry',
+				columns: 3,
+				items: [
+					{ thumbnail: '../images/1.jpg' },
+					{ thumbnail: '../images/2.jpg' },
+					{ thumbnail: '../images/3.jpg' },
+					{ thumbnail: '../images/4.jpg' },
+					{ thumbnail: '../images/5.jpg' },
+					{ thumbnail: '../images/6.jpg' },
+				],
+			} );
+
+			columnLinks.on( 'click', ( event ) => {
+				event.preventDefault();
+
+				const target = $( event.target );
+
+				masonryGallery.setSettings( 'columns', target.data( 'columns' ) );
+
+				columnLinks.removeClass( settingLinkActiveClass );
+
+				target.addClass( settingLinkActiveClass );
+			} );
+
+			numberControl( masonryGallery, '#columns-gap', 'horizontalGap' );
+			numberControl( masonryGallery, '#rows-gap', 'verticalGap' );
+		</script>
+	</body>
+</html>

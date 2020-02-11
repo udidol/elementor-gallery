@@ -1,65 +1,50 @@
-const gridGallery = new EGallery( {
-	container: '#grid-gallery-container',
-	type: 'grid',
-	items: [
-		{ thumbnail: 'images/1.jpg' },
-		{ thumbnail: 'images/2.jpg' },
-		{ thumbnail: 'images/3.jpg' },
-		{ thumbnail: 'images/4.jpg' },
-		{ thumbnail: 'images/5.jpg' },
-		{ thumbnail: 'images/6.jpg' },
-	],
+$( document ).ready( () => {
+	$( '#menuToggle' ).on( 'click', ( event ) => {
+		event.stopPropagation();
+		$( '#nav' ).fadeToggle( 200 );
+	} );
+
+	$( document ).on( 'click', () => {
+		$( '#nav' ).fadeOut( 200 );
+	} );
+
+	$( '#nav' ).click( ( event ) => {
+		event.stopPropagation();
+	} );
 } );
 
-new EGallery( {
-	container: '#justified-gallery-container',
-	type: 'justified',
-	items: [
-		{ thumbnail: 'images/1.jpg' },
-		{ thumbnail: 'images/2.jpg' },
-		{ thumbnail: 'images/3.jpg' },
-		{ thumbnail: 'images/4.jpg' },
-		{ thumbnail: 'images/5.jpg' },
-		{ thumbnail: 'images/6.jpg' },
-	],
-} );
+const numberControl = ( galleryObject, settingSelector, gallerySetting ) => {
+	const $input = $( settingSelector + ' .number-control-input' );
 
-const masonryGallery = new EGallery( {
-	container: '#masonry-gallery-container',
-	type: 'masonry',
-	items: [
-		{ thumbnail: 'images/1.jpg' },
-		{ thumbnail: 'images/2.jpg' },
-		{ thumbnail: 'images/3.jpg' },
-		{ thumbnail: 'images/4.jpg' },
-		{ thumbnail: 'images/5.jpg' },
-		{ thumbnail: 'images/6.jpg' },
-	],
-} );
+	$( settingSelector + ' .minus' ).click( () => {
+		let count = parseInt( $input.val() ) - 5;
 
-const aspectRatioLinks = $( '#aspect-ratio-choose .link' ),
-	columnLinks = $( '#columns-choose .link' );
+		count = count < 0 ? 0 : count;
 
-aspectRatioLinks.on( 'click', ( event ) => {
-	event.preventDefault();
+		$input.val( count );
+		$input.change();
 
-	const target = $( event.target );
+		galleryObject.setSettings( gallerySetting, count );
 
-	gridGallery.setSettings( 'aspectRatio', target.data( 'aspect-ratio' ) );
+		return false;
+	} );
 
-	aspectRatioLinks.removeClass( 'link-active' );
+	$( settingSelector + ' .plus' ).click( () => {
+		$input.val( parseInt( $input.val() ) + 5 );
+		$input.change();
 
-	target.addClass( 'link-active' );
-} );
+		galleryObject.setSettings( gallerySetting, $input.val() );
 
-columnLinks.on( 'click', ( event ) => {
-	event.preventDefault();
+		return false;
+	} );
 
-	const target = $( event.target );
+	$( settingSelector + ' .number-control-input' ).on( 'change', () => {
+		let count = parseInt( $input.val() );
 
-	masonryGallery.setSettings( 'columns', target.data( 'columns' ) );
+		count = count < 0 ? 0 : count;
 
-	columnLinks.removeClass( 'link-active' );
+		galleryObject.setSettings( gallerySetting, count );
 
-	target.addClass( 'link-active' );
-} );
+		return false;
+	} );
+};

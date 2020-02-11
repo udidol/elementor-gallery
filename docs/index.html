@@ -3,35 +3,48 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>E-Gallery by Elementor - Demo</title>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="e-gallery.min.js"></script>
-	<link rel="stylesheet" href="e-gallery.min.css">
+<!--	<script src="e-gallery.min.js"></script>-->
+<!--	<link rel="stylesheet" href="e-gallery.min.css">-->
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	<div class="wrapper">
-		<h1>E-Gallery by Elementor - Demo page</h1>
-		<h2>Grid Gallery</h2>
-		<p id="aspect-ratio-choose" class="centered">
-			<span class="option-label">Change Aspect ratio:</span>
-			<a href="#" class="link link-active" data-aspect-ratio="16:9">16:9</a>
-			<a href="#" class="link" data-aspect-ratio="4:3">4:3</a>
-			<a href="#" class="link" data-aspect-ratio="21:9">21:9</a>
-			<a href="#" class="link" data-aspect-ratio="1:1">1:1</a>
+		<header>
+			<img src="./images/elementor-site-logo.png" />
+			<h1>E-Gallery by Elementor - Demo</h1>
+			<div id="menuToggle"><i class="eicon-menu-bar" aria-hidden="true"></i></div>
+			<nav id="nav">
+				<ul>
+					<li><a href="/index.html">Demo Home</a></li>
+					<li><a href="/grid">Grid Gallery Demo</a></li>
+					<li><a href="/justified">Justified Gallery Demo</a></li>
+					<li><a href="/masonry">Masonry Gallery Demo</a></li>
+				</ul>
+			</nav>
+		</header>
+		<p>
+			E-Gallery is a powerful and lightweight open-source image gallery library.
 		</p>
-		<div id="grid-gallery-container" class="gallery-container"></div>
-		<h2>Justified Gallery</h2>
-		<div id="justified-gallery-container" class="gallery-container"></div>
-		<h2>Masonry Gallery</h2>
-		<p id="columns-choose" class="centered">
-			<span class="option-label">Change Number of Columns:</span>
-			<a href="#" class="link link-active" data-columns="5">5</a>
-			<a href="#" class="link" data-columns="4">4</a>
-			<a href="#" class="link" data-columns="3">3</a>
-			<a href="#" class="link" data-columns="2">2</a>
+		<p>
+			The gallery has 3 display modes: Grid, Justified, and Masonry. Click on the icons below to check out
+			each type of gallery:
 		</p>
-		<div id="masonry-gallery-container" class="gallery-container"></div>
+		<div class="links-container centered">
+			<a href="grid" class="link link-grid">
+				<i class="demo-icon eicon-gallery-grid"></i>
+				Grid
+			</a>
+			<a href="justified" class="link link-justified">
+				<i class="demo-icon eicon-gallery-justified"></i>
+				Justified
+			</a>
+			<a href="masonry" class="link link-masonry">
+				<i class="demo-icon eicon-gallery-masonry"></i>
+				Masonry
+			</a>
+		</div>
 	</div>
 	<script src="handler.js"></script>
 </body>
